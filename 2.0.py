@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image
 import pandas as pd
+import altair as alt
 
 # Título de la página
 st.title("Goles de Cristiano Ronaldo y Lionel Messi")
@@ -20,6 +21,7 @@ if st.sidebar.button("Haz cick hay una sorpresa"):
 user_input = st.sidebar.text_input("Escribe algo en la barra: ")
 st.sidebar.write(f"Has escrito: {user_input}")
 
+
 # Título de la aplicación
 st.title("Goles de Cristiano Ronaldo y Lionel Messi")
 
@@ -32,10 +34,18 @@ data = {
 
 df = pd.DataFrame(data)
 
-# Mostrar el gráfico de barras
-st.subheader("Gráfico de Barras")
-fig, ax = plt.subplots()
-df.set_index('Categoría').plot(kind='bar', ax=ax)
-ax.set_ylabel("Número de Goles")
-ax.set_title("Goles de Cristiano Ronaldo y Lionel Messi")
-st.pyplot(fig)
+# Convertir el DataFrame a un formato largo para Altair
+df_long = df.melt(id_vars="Categoría", var_name="Jugador", value_name="Número de Goles")
+
+# Crear el gráfico de barras
+chart = alt.Chart(df_long).mark_bar().encode(
+    x=alt.X('Categoría:N', title='Categoría'),
+    y=alt.Y('Número de Goles:Q', title='Número de Goles'),
+    color='Jugador:N',
+    tooltip=['Jugador:N', 'Número de Goles:Q']
+).properties(
+    title='Goles de Cristiano Ronaldo y Lionel Messi'
+)
+
+# Mostrar el gráfico
+st.altair_chart(chart, use_container_width=True)
