@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image
 import pandas as pd
+import matplotlib.pyplot as plt
 
 # Título de la página
 st.title("Goles de Cristiano Ronaldo y Lionel Messi")
@@ -20,26 +21,22 @@ if st.sidebar.button("Haz cick hay una sorpresa"):
 user_input = st.sidebar.text_input("Escribe algo en la barra: ")
 st.sidebar.write(f"Has escrito: {user_input}")
 
+# Título de la aplicación
+st.title("Goles de Cristiano Ronaldo y Lionel Messi")
 
-# Cargar el archivo de Excel
-uploaded_file = st.file_uploader("Elige un archivo Excel (Base de datos cr7 messi)", type=["xlsx"])
+# Crear un DataFrame con los datos
+data = {
+    "Categoría": ["Goles con la selección", "Goles en la Champions", "Goles históricos"],
+    "Cristiano Ronaldo": [123, 140, 850],
+    "Lionel Messi": [106, 130, 835]
+}
 
-if uploaded_file is not None:
-    try:
-        # Leer el archivo de Excel
-        df = pd.read_excel(uploaded_file)
+df = pd.DataFrame(data)
 
-        # Mostrar el DataFrame
-        st.write("Datos de la base de datos:")
-        st.dataframe(df)
-
-        # Mostrar el gráfico de barras
-        st.subheader("Gráfico de Barras")
-        fig, ax = plt.subplots()
-        df.set_index('Categoría').plot(kind='bar', ax=ax)
-        ax.set_ylabel("Número de Goles")
-        ax.set_title("Goles de Cristiano Ronaldo y Lionel Messi")
-        st.pyplot(fig)
-
-    except Exception as e:
-        st.error(f"Error al leer el archivo: {e}")
+# Mostrar el gráfico de barras
+st.subheader("Gráfico de Barras")
+fig, ax = plt.subplots()
+df.set_index('Categoría').plot(kind='bar', ax=ax)
+ax.set_ylabel("Número de Goles")
+ax.set_title("Goles de Cristiano Ronaldo y Lionel Messi")
+st.pyplot(fig)
