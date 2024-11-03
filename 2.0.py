@@ -19,7 +19,7 @@ if st.sidebar.button("Haz cick hay una sorpresa"):
 user_input = st.sidebar.text_input("Escribe algo en la barra: ")
 st.sidebar.write(f"Has escrito: {user_input}")
 
-ploaded_file = st.file_uploader("Base de datos cr7 messi", type=["xlsx"])
+ploaded_file = st.file_uploader("Base.xlsx", type=["xlsx"])
 
 if uploaded_file is not None:
     # Leer el archivo de Excel
