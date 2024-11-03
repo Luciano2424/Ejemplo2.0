@@ -13,8 +13,8 @@ st.sidebar.title("Barra lateral")
 st.sidebar.header("Hola")
 st.sidebar.write("Esto es mi barra lateral")
 
-if st.sidebar.button("Haz echo cick pero en la barra lateral"):
-    st.sidebar.write("Haz echo click en el botón de la barra lateral")
+if st.sidebar.button("Haz cick hay una sorpresa"):
+    st.sidebar.write("Cr7 >>>>> Messi")
 
 user_input = st.sidebar.text_input("Escribe algo en la barra: ")
 st.sidebar.write(f"Has escrito: {user_input}")
