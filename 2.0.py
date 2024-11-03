@@ -1,9 +1,10 @@
 import streamlit as st
 from PIL import Image
-
+import pandas as pd
+import matplotlib.pyplot as plt
 
 # Título de la página
-st.title("Bienvenidos a Universidad San Sebastián")
+st.title("Goles de Cristiano Ronaldo y Lionel Messi")
 
 #Imagen cr7
 image = Image.open("cr7.jpg")
@@ -20,6 +21,8 @@ if st.sidebar.button("Haz cick hay una sorpresa"):
 user_input = st.sidebar.text_input("Escribe algo en la barra: ")
 st.sidebar.write(f"Has escrito: {user_input}")
 
+
+# Cargar el archivo de Excel
 uploaded_file = st.file_uploader("Elige un archivo Excel (Base de datos cr7 messi)", type=["xlsx"])
 
 if uploaded_file is not None:
