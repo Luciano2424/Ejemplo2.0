@@ -42,9 +42,11 @@ chart = alt.Chart(df_long).mark_bar().encode(
     x=alt.X('Categoría:N', title='Categoría'),
     y=alt.Y('Número de Goles:Q', title='Número de Goles'),
     color='Jugador:N',
-    tooltip=['Jugador:N', 'Número de Goles:Q']
+    column='Jugador:N'  # Dividir las barras en columnas por jugador
 ).properties(
     title='Goles de Cristiano Ronaldo y Lionel Messi'
+).resolve_scale(
+    x='independent'  # Asegura que cada jugador tenga su escala x
 )
 
 # Mostrar el gráfico
