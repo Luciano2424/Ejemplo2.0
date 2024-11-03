@@ -1,3 +1,4 @@
 streamlit
 image
 pandas
+matplotlib.pyplot
