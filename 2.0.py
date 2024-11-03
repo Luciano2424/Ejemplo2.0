@@ -1,6 +1,6 @@
 import streamlit as st
 from PIL import Image
-import matplotlib.pyplot as plt
+import pandas as pd
 
 # Título de la página
 st.title("Goles de Cristiano Ronaldo y Lionel Messi")
