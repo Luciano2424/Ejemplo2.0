@@ -10,7 +10,7 @@ st.image(image, caption='Imagen de CR7', use_column_width=True)
 
 #barra lateral
 st.sidebar.title("Barra lateral")
-st.sidebar.header("Hola")
+st.sidebar.header("Barra interactiva")
 st.sidebar.write("Esto es mi barra lateral")
 
 if st.sidebar.button("Haz cick hay una sorpresa"):
