@@ -15,7 +15,7 @@ st.sidebar.title("Lee abajo")
 st.sidebar.header("Más abajo")
 st.sidebar.write("Un poco más")
 
-if st.sidebar.button("Haz cick hay una sorpresa"):
+if st.sidebar.button("Haz cick aquí, hay una sorpresa"):
     st.sidebar.write("Cr7 >>>>> Messi")
 
 user_input = st.sidebar.text_input("Escribe algo en la barra: ")
