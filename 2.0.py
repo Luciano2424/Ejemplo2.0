@@ -39,7 +39,7 @@ df_long = df.melt(id_vars="Categoría", var_name="Jugador", value_name="Número 
 
 # Crear el gráfico de barras
 chart = alt.Chart(df_long).mark_bar().encode(
-    x=alt.X('Categoría:N', title='Categoría', axis=alt.Axis(labelAngle=135), fontdict='weight': 'bold'}),
+    x=alt.X('Categoría:N', title='Categoría', axis=alt.Axis(labelAngle=135)),
     y=alt.Y('Número de Goles:Q', title='Número de Goles'),
     color='Jugador:N',
     column='Jugador:N',  # Mueve cada jugador a una posición en la gráfica
