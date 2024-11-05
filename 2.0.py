@@ -11,9 +11,9 @@ image = Image.open("cr7.jpg")
 st.image(image, caption='Imagen de CR7', use_column_width=True)
 
 #barra lateral
-st.sidebar.title("Barra lateral")
-st.sidebar.header("Barra interactiva")
-st.sidebar.write("Esto es mi barra lateral")
+st.sidebar.title("Lee abajo")
+st.sidebar.header("Más abajo")
+st.sidebar.write("Un poco más")
 
 if st.sidebar.button("Haz cick hay una sorpresa"):
     st.sidebar.write("Cr7 >>>>> Messi")
